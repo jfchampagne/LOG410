@@ -17,16 +17,16 @@ namespace PrototypeLog410
             InitializeComponent();
 
             ClassChoice[] classChoicesArray = new ClassChoice[]{
-            new ClassChoice{Niveau1 = "Corail", Niveau2="Rose", Pourcentage=72 }
-            , new ClassChoice{Niveau1 = "Corail", Niveau2="Rouge", Pourcentage=21 }
-            , new ClassChoice{Niveau1 = "Corail", Niveau2="Bleu", Pourcentage=3 }
-            , new ClassChoice{Niveau1 = "Corail", Niveau2="Vert", Pourcentage=2 }
-            , new ClassChoice{Niveau1 = "Poisson", Niveau2="Brochet", Pourcentage=0.5f }
-            , new ClassChoice{Niveau1 = "Poisson", Niveau2="Requin", Pourcentage=0.5f }
-            , new ClassChoice{Niveau1 = "Poisson", Niveau2="Dauphin", Pourcentage=0.4f }
-            , new ClassChoice{Niveau1 = "Autre", Niveau2="Sable", Pourcentage=0.2f }
-            , new ClassChoice{Niveau1 = "Autre", Niveau2="Algue", Pourcentage=0.2f }
-            , new ClassChoice{Niveau1 = "Autre", Niveau2="Roche", Pourcentage=0.2f }
+            new ClassChoice{Niveau1 = "Coral", Niveau2="Pink", Pourcentage=72 }
+            , new ClassChoice{Niveau1 = "Coral", Niveau2="Red", Pourcentage=21 }
+            , new ClassChoice{Niveau1 = "Coral", Niveau2="Blue", Pourcentage=3 }
+            , new ClassChoice{Niveau1 = "Coral", Niveau2="Green", Pourcentage=2 }
+            , new ClassChoice{Niveau1 = "Fish", Niveau2="Pike", Pourcentage=0.5f }
+            , new ClassChoice{Niveau1 = "Fish", Niveau2="Shark", Pourcentage=0.5f }f
+            , new ClassChoice{Niveau1 = "Fish", Niveau2="Dolphin", Pourcentage=0.4f }
+            , new ClassChoice{Niveau1 = "Other", Niveau2="Sand", Pourcentage=0.2f }
+            , new ClassChoice{Niveau1 = "Other", Niveau2="Alga", Pourcentage=0.2f }
+            , new ClassChoice{Niveau1 = "Other", Niveau2="Rock", Pourcentage=0.2f }
             };
 
             int classChoicesCount = classChoicesArray.Length;
