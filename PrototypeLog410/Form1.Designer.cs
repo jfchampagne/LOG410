@@ -43,6 +43,11 @@
             this.segment3 = new System.Windows.Forms.PictureBox();
             this.segment2 = new System.Windows.Forms.PictureBox();
             this.segment5 = new System.Windows.Forms.PictureBox();
+            this.classification1 = new System.Windows.Forms.Label();
+            this.classification2 = new System.Windows.Forms.Label();
+            this.classification4 = new System.Windows.Forms.Label();
+            this.classification5 = new System.Windows.Forms.Label();
+            this.classification3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.classChoices)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.segment1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.point2)).BeginInit();
@@ -95,7 +100,7 @@
             this.segment1.Image = global::PrototypeLog410.Properties.Resources.segment;
             this.segment1.Location = new System.Drawing.Point(513, 185);
             this.segment1.Name = "segment1";
-            this.segment1.Size = new System.Drawing.Size(150, 106);
+            this.segment1.Size = new System.Drawing.Size(240, 106);
             this.segment1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.segment1.TabIndex = 7;
             this.segment1.TabStop = false;
@@ -170,7 +175,7 @@
             this.segment4.Image = global::PrototypeLog410.Properties.Resources.segment;
             this.segment4.Location = new System.Drawing.Point(530, 451);
             this.segment4.Name = "segment4";
-            this.segment4.Size = new System.Drawing.Size(150, 106);
+            this.segment4.Size = new System.Drawing.Size(240, 106);
             this.segment4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.segment4.TabIndex = 8;
             this.segment4.TabStop = false;
@@ -180,7 +185,7 @@
             this.segment3.Image = global::PrototypeLog410.Properties.Resources.segment;
             this.segment3.Location = new System.Drawing.Point(700, 330);
             this.segment3.Name = "segment3";
-            this.segment3.Size = new System.Drawing.Size(150, 106);
+            this.segment3.Size = new System.Drawing.Size(240, 106);
             this.segment3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.segment3.TabIndex = 9;
             this.segment3.TabStop = false;
@@ -190,7 +195,7 @@
             this.segment2.Image = global::PrototypeLog410.Properties.Resources.segment;
             this.segment2.Location = new System.Drawing.Point(908, 185);
             this.segment2.Name = "segment2";
-            this.segment2.Size = new System.Drawing.Size(150, 106);
+            this.segment2.Size = new System.Drawing.Size(240, 106);
             this.segment2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.segment2.TabIndex = 10;
             this.segment2.TabStop = false;
@@ -200,16 +205,77 @@
             this.segment5.Image = global::PrototypeLog410.Properties.Resources.segment;
             this.segment5.Location = new System.Drawing.Point(908, 451);
             this.segment5.Name = "segment5";
-            this.segment5.Size = new System.Drawing.Size(150, 106);
+            this.segment5.Size = new System.Drawing.Size(240, 106);
             this.segment5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.segment5.TabIndex = 11;
             this.segment5.TabStop = false;
+            // 
+            // classification1
+            // 
+            this.classification1.AutoSize = true;
+            this.classification1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
+            this.classification1.ForeColor = System.Drawing.Color.Red;
+            this.classification1.Location = new System.Drawing.Point(501, 248);
+            this.classification1.Name = "classification1";
+            this.classification1.Size = new System.Drawing.Size(197, 25);
+            this.classification1.TabIndex = 12;
+            this.classification1.Text = "Other - Rock - 22%";
+            this.classification1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // classification2
+            // 
+            this.classification2.AutoSize = true;
+            this.classification2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
+            this.classification2.ForeColor = System.Drawing.Color.Red;
+            this.classification2.Location = new System.Drawing.Point(586, 353);
+            this.classification2.Name = "classification2";
+            this.classification2.Size = new System.Drawing.Size(189, 25);
+            this.classification2.TabIndex = 13;
+            this.classification2.Text = "Coral - Pink - 72%";
+            // 
+            // classification4
+            // 
+            this.classification4.AutoSize = true;
+            this.classification4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
+            this.classification4.ForeColor = System.Drawing.Color.Green;
+            this.classification4.Location = new System.Drawing.Point(568, 423);
+            this.classification4.Name = "classification4";
+            this.classification4.Size = new System.Drawing.Size(193, 25);
+            this.classification4.TabIndex = 14;
+            this.classification4.Text = "Other - Alga - 90%";
+            // 
+            // classification5
+            // 
+            this.classification5.AutoSize = true;
+            this.classification5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
+            this.classification5.ForeColor = System.Drawing.Color.Green;
+            this.classification5.Location = new System.Drawing.Point(750, 560);
+            this.classification5.Name = "classification5";
+            this.classification5.Size = new System.Drawing.Size(178, 25);
+            this.classification5.TabIndex = 15;
+            this.classification5.Text = "Fish - Pike - 96%";
+            // 
+            // classification3
+            // 
+            this.classification3.AutoSize = true;
+            this.classification3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
+            this.classification3.ForeColor = System.Drawing.Color.Green;
+            this.classification3.Location = new System.Drawing.Point(414, 388);
+            this.classification3.Name = "classification3";
+            this.classification3.Size = new System.Drawing.Size(189, 25);
+            this.classification3.TabIndex = 16;
+            this.classification3.Text = "Coral - Pink - 92%";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1350, 730);
+            this.Controls.Add(this.classification3);
+            this.Controls.Add(this.classification5);
+            this.Controls.Add(this.classification4);
+            this.Controls.Add(this.classification2);
+            this.Controls.Add(this.classification1);
             this.Controls.Add(this.segment5);
             this.Controls.Add(this.segment2);
             this.Controls.Add(this.segment3);
@@ -223,7 +289,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.classChoices);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "SmartReef";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.classChoices)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.segment1)).EndInit();
@@ -238,6 +304,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.segment2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.segment5)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -258,6 +325,11 @@
         private System.Windows.Forms.PictureBox segment3;
         private System.Windows.Forms.PictureBox segment2;
         private System.Windows.Forms.PictureBox segment5;
+        private System.Windows.Forms.Label classification1;
+        private System.Windows.Forms.Label classification2;
+        private System.Windows.Forms.Label classification4;
+        private System.Windows.Forms.Label classification5;
+        private System.Windows.Forms.Label classification3;
     }
 }
 
