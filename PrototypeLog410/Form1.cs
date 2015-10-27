@@ -41,6 +41,19 @@ namespace PrototypeLog410
                 classChoices.Rows[i].Cells[1].Value = currChoice.Niveau2;
                 classChoices.Rows[i].Cells[2].Value = currChoice.Pourcentage;
             }
+
+            addAnnotationPoint(point1, 0.25f, 0.25f);
+            addAnnotationPoint(point2, 0.25f, 0.75f);
+            addAnnotationPoint(point3, 0.75f, 0.75f);
+            addAnnotationPoint(point4, 0.75f, 0.25f);
+            addAnnotationPoint(point5, 0.50f, 0.50f);
+        }
+
+        private void addAnnotationPoint(PictureBox pictureBox, float xFraction, float yFraction)
+        {
+            pictureBox.Parent = pictureBox1;
+            pictureBox.BackColor = Color.Transparent;
+            pictureBox.Location = new Point((int)(pictureBox1.Size.Width * xFraction), (int)(pictureBox1.Size.Height * yFraction));
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -53,6 +66,11 @@ namespace PrototypeLog410
             public string Niveau1 { get; set; }
             public string Niveau2 { get; set; }
             public float Pourcentage { get; set; }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
