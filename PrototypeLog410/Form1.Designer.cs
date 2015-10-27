@@ -32,19 +32,29 @@
             this.Level1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Level2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pct = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.segment1 = new System.Windows.Forms.PictureBox();
+            this.point2 = new System.Windows.Forms.PictureBox();
+            this.point4 = new System.Windows.Forms.PictureBox();
+            this.point5 = new System.Windows.Forms.PictureBox();
+            this.point3 = new System.Windows.Forms.PictureBox();
             this.point1 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.point3 = new System.Windows.Forms.PictureBox();
-            this.point5 = new System.Windows.Forms.PictureBox();
-            this.point4 = new System.Windows.Forms.PictureBox();
-            this.point2 = new System.Windows.Forms.PictureBox();
+            this.segment4 = new System.Windows.Forms.PictureBox();
+            this.segment3 = new System.Windows.Forms.PictureBox();
+            this.segment2 = new System.Windows.Forms.PictureBox();
+            this.segment5 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.classChoices)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.segment1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.point2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.point4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.point5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.point3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.point1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.point3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.point5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.point4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.point2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.segment4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.segment3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.segment2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.segment5)).BeginInit();
             this.SuspendLayout();
             // 
             // classChoices
@@ -80,6 +90,60 @@
             this.pct.Name = "pct";
             this.pct.ReadOnly = true;
             // 
+            // segment1
+            // 
+            this.segment1.Image = global::PrototypeLog410.Properties.Resources.segment;
+            this.segment1.Location = new System.Drawing.Point(513, 185);
+            this.segment1.Name = "segment1";
+            this.segment1.Size = new System.Drawing.Size(150, 106);
+            this.segment1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.segment1.TabIndex = 7;
+            this.segment1.TabStop = false;
+            // 
+            // point2
+            // 
+            this.point2.BackColor = System.Drawing.Color.Transparent;
+            this.point2.Image = global::PrototypeLog410.Properties.Resources.point;
+            this.point2.Location = new System.Drawing.Point(968, 225);
+            this.point2.Name = "point2";
+            this.point2.Size = new System.Drawing.Size(20, 20);
+            this.point2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.point2.TabIndex = 6;
+            this.point2.TabStop = false;
+            // 
+            // point4
+            // 
+            this.point4.BackColor = System.Drawing.Color.Transparent;
+            this.point4.Image = global::PrototypeLog410.Properties.Resources.point;
+            this.point4.Location = new System.Drawing.Point(583, 502);
+            this.point4.Name = "point4";
+            this.point4.Size = new System.Drawing.Size(20, 20);
+            this.point4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.point4.TabIndex = 5;
+            this.point4.TabStop = false;
+            // 
+            // point5
+            // 
+            this.point5.BackColor = System.Drawing.Color.Transparent;
+            this.point5.Image = global::PrototypeLog410.Properties.Resources.point;
+            this.point5.Location = new System.Drawing.Point(968, 502);
+            this.point5.Name = "point5";
+            this.point5.Size = new System.Drawing.Size(20, 20);
+            this.point5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.point5.TabIndex = 4;
+            this.point5.TabStop = false;
+            // 
+            // point3
+            // 
+            this.point3.BackColor = System.Drawing.Color.Transparent;
+            this.point3.Image = global::PrototypeLog410.Properties.Resources.point;
+            this.point3.Location = new System.Drawing.Point(771, 357);
+            this.point3.Name = "point3";
+            this.point3.Size = new System.Drawing.Size(20, 20);
+            this.point3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.point3.TabIndex = 3;
+            this.point3.TabStop = false;
+            // 
             // point1
             // 
             this.point1.BackColor = System.Drawing.Color.Transparent;
@@ -101,55 +165,56 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // point3
+            // segment4
             // 
-            this.point3.BackColor = System.Drawing.Color.Transparent;
-            this.point3.Image = global::PrototypeLog410.Properties.Resources.point;
-            this.point3.Location = new System.Drawing.Point(771, 357);
-            this.point3.Name = "point3";
-            this.point3.Size = new System.Drawing.Size(20, 20);
-            this.point3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.point3.TabIndex = 3;
-            this.point3.TabStop = false;
+            this.segment4.Image = global::PrototypeLog410.Properties.Resources.segment;
+            this.segment4.Location = new System.Drawing.Point(530, 451);
+            this.segment4.Name = "segment4";
+            this.segment4.Size = new System.Drawing.Size(150, 106);
+            this.segment4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.segment4.TabIndex = 8;
+            this.segment4.TabStop = false;
             // 
-            // point5
+            // segment3
             // 
-            this.point5.BackColor = System.Drawing.Color.Transparent;
-            this.point5.Image = global::PrototypeLog410.Properties.Resources.point;
-            this.point5.Location = new System.Drawing.Point(968, 502);
-            this.point5.Name = "point5";
-            this.point5.Size = new System.Drawing.Size(20, 20);
-            this.point5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.point5.TabIndex = 4;
-            this.point5.TabStop = false;
+            this.segment3.Image = global::PrototypeLog410.Properties.Resources.segment;
+            this.segment3.Location = new System.Drawing.Point(700, 330);
+            this.segment3.Name = "segment3";
+            this.segment3.Size = new System.Drawing.Size(150, 106);
+            this.segment3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.segment3.TabIndex = 9;
+            this.segment3.TabStop = false;
             // 
-            // point4
+            // segment2
             // 
-            this.point4.BackColor = System.Drawing.Color.Transparent;
-            this.point4.Image = global::PrototypeLog410.Properties.Resources.point;
-            this.point4.Location = new System.Drawing.Point(583, 502);
-            this.point4.Name = "point4";
-            this.point4.Size = new System.Drawing.Size(20, 20);
-            this.point4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.point4.TabIndex = 5;
-            this.point4.TabStop = false;
+            this.segment2.Image = global::PrototypeLog410.Properties.Resources.segment;
+            this.segment2.Location = new System.Drawing.Point(908, 185);
+            this.segment2.Name = "segment2";
+            this.segment2.Size = new System.Drawing.Size(150, 106);
+            this.segment2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.segment2.TabIndex = 10;
+            this.segment2.TabStop = false;
             // 
-            // point2
+            // segment5
             // 
-            this.point2.BackColor = System.Drawing.Color.Transparent;
-            this.point2.Image = global::PrototypeLog410.Properties.Resources.point;
-            this.point2.Location = new System.Drawing.Point(968, 225);
-            this.point2.Name = "point2";
-            this.point2.Size = new System.Drawing.Size(20, 20);
-            this.point2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.point2.TabIndex = 6;
-            this.point2.TabStop = false;
+            this.segment5.Image = global::PrototypeLog410.Properties.Resources.segment;
+            this.segment5.Location = new System.Drawing.Point(908, 451);
+            this.segment5.Name = "segment5";
+            this.segment5.Size = new System.Drawing.Size(150, 106);
+            this.segment5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.segment5.TabIndex = 11;
+            this.segment5.TabStop = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1350, 730);
+            this.Controls.Add(this.segment5);
+            this.Controls.Add(this.segment2);
+            this.Controls.Add(this.segment3);
+            this.Controls.Add(this.segment4);
+            this.Controls.Add(this.segment1);
             this.Controls.Add(this.point2);
             this.Controls.Add(this.point4);
             this.Controls.Add(this.point5);
@@ -161,12 +226,17 @@
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.classChoices)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.segment1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.point2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.point4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.point5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.point3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.point1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.point3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.point5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.point4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.point2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.segment4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.segment3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.segment2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.segment5)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -183,6 +253,11 @@
         private System.Windows.Forms.PictureBox point5;
         private System.Windows.Forms.PictureBox point4;
         private System.Windows.Forms.PictureBox point2;
+        private System.Windows.Forms.PictureBox segment1;
+        private System.Windows.Forms.PictureBox segment4;
+        private System.Windows.Forms.PictureBox segment3;
+        private System.Windows.Forms.PictureBox segment2;
+        private System.Windows.Forms.PictureBox segment5;
     }
 }
 
