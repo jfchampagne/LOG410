@@ -237,7 +237,7 @@
             // 
             this.classification4.AutoSize = true;
             this.classification4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.classification4.ForeColor = System.Drawing.Color.Green;
+            this.classification4.ForeColor = System.Drawing.Color.Lime;
             this.classification4.Location = new System.Drawing.Point(568, 423);
             this.classification4.Name = "classification4";
             this.classification4.Size = new System.Drawing.Size(193, 25);
@@ -248,7 +248,7 @@
             // 
             this.classification5.AutoSize = true;
             this.classification5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.classification5.ForeColor = System.Drawing.Color.Green;
+            this.classification5.ForeColor = System.Drawing.Color.Lime;
             this.classification5.Location = new System.Drawing.Point(750, 560);
             this.classification5.Name = "classification5";
             this.classification5.Size = new System.Drawing.Size(178, 25);
@@ -259,7 +259,7 @@
             // 
             this.classification3.AutoSize = true;
             this.classification3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.classification3.ForeColor = System.Drawing.Color.Green;
+            this.classification3.ForeColor = System.Drawing.Color.Lime;
             this.classification3.Location = new System.Drawing.Point(414, 388);
             this.classification3.Name = "classification3";
             this.classification3.Size = new System.Drawing.Size(189, 25);

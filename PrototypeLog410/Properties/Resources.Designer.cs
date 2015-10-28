@@ -83,6 +83,16 @@ namespace PrototypeLog410.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap point_rouge {
+            get {
+                object obj = ResourceManager.GetObject("point_rouge", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap segment {
             get {
                 object obj = ResourceManager.GetObject("segment", resourceCulture);

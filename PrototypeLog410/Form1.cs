@@ -12,6 +12,9 @@ namespace PrototypeLog410
 {
     public partial class Form1 : Form
     {
+        private bool isPointRed;
+        private PictureBox selectedPoint;
+
         public Form1()
         {
             InitializeComponent();
@@ -47,6 +50,28 @@ namespace PrototypeLog410
             addAnnotationPoint(point3, segment3, classification3, 0.75f, 0.75f);
             addAnnotationPoint(point4, segment4, classification4, 0.75f, 0.25f);
             addAnnotationPoint(point5, segment5, classification5, 0.50f, 0.50f);
+
+            selectedPoint = point1;
+
+            isPointRed = false;
+            Timer redPointTimer = new Timer();
+            redPointTimer.Tick += new EventHandler(changeSelectedPointState);
+            redPointTimer.Interval = 500;
+            redPointTimer.Start();
+        }
+
+        private void changeSelectedPointState(object sender, EventArgs args)
+        {
+            if(isPointRed)
+            {
+                selectedPoint.Image = Properties.Resources.point;
+            }
+            else
+            {
+                selectedPoint.Image = Properties.Resources.point_rouge;
+            }
+
+            isPointRed = !isPointRed;
         }
 
         private void addAnnotationPoint(PictureBox pictureBox, PictureBox segmentPictureBox, Label classificationLabel, float xFraction, float yFraction)
