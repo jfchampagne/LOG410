@@ -48,6 +48,7 @@
             this.filterTextBox = new System.Windows.Forms.TextBox();
             this.classChoiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.classChoices = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.segment5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.segment2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.segment3)).BeginInit();
@@ -236,9 +237,9 @@
             // 
             // filterTextBox
             // 
-            this.filterTextBox.Location = new System.Drawing.Point(1, 481);
+            this.filterTextBox.Location = new System.Drawing.Point(36, 481);
             this.filterTextBox.Name = "filterTextBox";
-            this.filterTextBox.Size = new System.Drawing.Size(322, 20);
+            this.filterTextBox.Size = new System.Drawing.Size(287, 20);
             this.filterTextBox.TabIndex = 17;
             this.filterTextBox.TextChanged += new System.EventHandler(this.filterTextBox_TextChanged);
             // 
@@ -250,15 +251,27 @@
             // 
             this.classChoices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.classChoices.Location = new System.Drawing.Point(1, 13);
+            this.classChoices.MultiSelect = false;
             this.classChoices.Name = "classChoices";
+            this.classChoices.ReadOnly = true;
             this.classChoices.Size = new System.Drawing.Size(322, 462);
             this.classChoices.TabIndex = 18;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(1, 484);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(29, 13);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Filter";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1350, 730);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.classChoices);
             this.Controls.Add(this.filterTextBox);
             this.Controls.Add(this.classification3);
@@ -320,6 +333,7 @@
         private System.Windows.Forms.TextBox filterTextBox;
         private System.Windows.Forms.BindingSource classChoiceBindingSource;
         private System.Windows.Forms.DataGridView classChoices;
+        private System.Windows.Forms.Label label1;
     }
 }
 

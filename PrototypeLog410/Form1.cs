@@ -146,6 +146,28 @@ namespace PrototypeLog410
                     }
                 }
             }
+
+            selectFirstVisibleClassChoice();
+        }
+
+        private void selectFirstVisibleClassChoice()
+        {
+            bool firstAlreadySelected = false;
+
+            foreach (DataGridViewRow row in classChoices.Rows)
+            {
+                if(firstAlreadySelected || !row.Visible)
+                {
+                    row.Selected = false;
+                }
+                else if(row.Visible)
+                {
+                    firstAlreadySelected = true;
+                    row.Selected = true;
+                    row.Cells[0].Selected = true;
+                    classChoices.CurrentCell = row.Cells[0];
+                }
+            }
         }
     }
 }
