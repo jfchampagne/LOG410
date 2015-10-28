@@ -191,6 +191,7 @@
             this.point2.TabIndex = 6;
             this.point2.TabStop = false;
             this.point2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.point2_Click);
+            this.point2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mouseDownOnPoint2);
             // 
             // point4
             // 
@@ -203,6 +204,7 @@
             this.point4.TabIndex = 5;
             this.point4.TabStop = false;
             this.point4.MouseClick += new System.Windows.Forms.MouseEventHandler(this.point4_Click);
+            this.point4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mouseDownOnPoint4);
             // 
             // point5
             // 
@@ -215,6 +217,7 @@
             this.point5.TabIndex = 4;
             this.point5.TabStop = false;
             this.point5.MouseClick += new System.Windows.Forms.MouseEventHandler(this.point5_Click);
+            this.point5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mouseDownOnPoint5);
             // 
             // point3
             // 
@@ -227,6 +230,7 @@
             this.point3.TabIndex = 3;
             this.point3.TabStop = false;
             this.point3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.point3_Click);
+            this.point3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mouseDownOnPoint3);
             // 
             // point1
             // 

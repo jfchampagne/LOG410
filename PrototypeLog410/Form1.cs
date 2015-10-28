@@ -386,15 +386,37 @@ namespace PrototypeLog410
 
         private void mouseDownOnPoint1(object sender, MouseEventArgs e)
         {
-            Console.WriteLine("HELLO WORLD!!!!");
-
             AnnotationPoint annotationPoint = new AnnotationPoint { point = point1, label = classification1 };
+            startDraggingPoint(annotationPoint, e);
+        }
+
+        private void mouseDownOnPoint2(object sender, MouseEventArgs e)
+        {
+            AnnotationPoint annotationPoint = new AnnotationPoint { point = point2, label = classification2 };
+            startDraggingPoint(annotationPoint, e);
+        }
+
+        private void mouseDownOnPoint3(object sender, MouseEventArgs e)
+        {
+            AnnotationPoint annotationPoint = new AnnotationPoint { point = point3, label = classification3 };
+            startDraggingPoint(annotationPoint, e);
+        }
+
+        private void mouseDownOnPoint4(object sender, MouseEventArgs e)
+        {
+            AnnotationPoint annotationPoint = new AnnotationPoint { point = point4, label = classification4 };
+            startDraggingPoint(annotationPoint, e);
+        }
+
+        private void mouseDownOnPoint5(object sender, MouseEventArgs e)
+        {
+            AnnotationPoint annotationPoint = new AnnotationPoint { point = point5, label = classification5 };
             startDraggingPoint(annotationPoint, e);
         }
 
         private void startDraggingPoint(AnnotationPoint annotationPoint, MouseEventArgs e)
         {
-            annotationPointDrag = new AnnotationPointDrag { startX = e.X, startY = e.Y, point = annotationPoint };
+            annotationPointDrag = new AnnotationPointDrag { startX = Cursor.Position.X, startY = Cursor.Position.Y, point = annotationPoint };
         }
 
         private void onMouseRelease(int mouseX, int mouseY)
