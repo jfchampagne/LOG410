@@ -45,6 +45,9 @@ namespace PrototypeLog410
 
             AnnotationPoint annotation1 = new AnnotationPoint { point = point1, label = classification1 };
             AnnotationPoint annotation2 = new AnnotationPoint { point = point2, label = classification2 };
+            AnnotationPoint annotation3 = new AnnotationPoint { point = point3, label = classification3 };
+            AnnotationPoint annotation4 = new AnnotationPoint { point = point4, label = classification4 };
+            AnnotationPoint annotation5 = new AnnotationPoint { point = point5, label = classification5 };
 
             pointsToClassify = new Queue<AnnotationPoint>();
             pointsToClassify.Enqueue(annotation1);
@@ -118,11 +121,6 @@ namespace PrototypeLog410
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
         {
 
         }
@@ -259,6 +257,129 @@ namespace PrototypeLog410
 
             pictureBox1.Image = images.Dequeue();
             selectedPoint = null;
+        }
+
+        private void segment1_Click(object sender, EventArgs e)
+        {
+            if(classification1.ForeColor == Color.Lime)
+            {
+                AnnotationPoint annotationPoint = new AnnotationPoint { point = point1, label = classification1 };
+                onPointSelectedManually(annotationPoint);
+            }
+        }
+
+        private void segment2_Click(object sender, EventArgs e)
+        {
+            if (classification2.ForeColor == Color.Lime)
+            {
+                AnnotationPoint annotationPoint = new AnnotationPoint { point = point2, label = classification2 };
+                onPointSelectedManually(annotationPoint);
+            }
+        }
+
+        private void segment3_Click(object sender, EventArgs e)
+        {
+            AnnotationPoint annotationPoint = new AnnotationPoint { point = point3, label = classification3 };
+            onPointSelectedManually(annotationPoint);
+        }
+
+        private void segment4_Click(object sender, EventArgs e)
+        {
+            AnnotationPoint annotationPoint = new AnnotationPoint { point = point4, label = classification4 };
+            onPointSelectedManually(annotationPoint);
+        }
+
+        private void segment5_Click(object sender, EventArgs e)
+        {
+            AnnotationPoint annotationPoint = new AnnotationPoint { point = point5, label = classification5 };
+            onPointSelectedManually(annotationPoint);
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            if (classification1.ForeColor == Color.Lime)
+            {
+                AnnotationPoint annotationPoint = new AnnotationPoint { point = point1, label = classification1 };
+                onPointSelectedManually(annotationPoint);
+            }
+        }
+
+        private void classification2_Click(object sender, EventArgs e)
+        {
+            if (classification2.ForeColor == Color.Lime)
+            {
+                AnnotationPoint annotationPoint = new AnnotationPoint { point = point2, label = classification2 };
+                onPointSelectedManually(annotationPoint);
+            }
+        }
+
+        private void classification3_Click(object sender, EventArgs e)
+        {
+            AnnotationPoint annotationPoint = new AnnotationPoint { point = point3, label = classification3 };
+            onPointSelectedManually(annotationPoint);
+        }
+
+        private void classification4_Click(object sender, EventArgs e)
+        {
+            AnnotationPoint annotationPoint = new AnnotationPoint { point = point4, label = classification4 };
+            onPointSelectedManually(annotationPoint);
+        }
+
+        private void classification5_Click(object sender, EventArgs e)
+        {
+            AnnotationPoint annotationPoint = new AnnotationPoint { point = point5, label = classification5 };
+            onPointSelectedManually(annotationPoint);
+        }
+
+        private void point1_Click(object sender, EventArgs e)
+        {
+            if(classification1.ForeColor == Color.Lime)
+            {
+                AnnotationPoint annotationPoint = new AnnotationPoint { point = point1, label = classification1 };
+                onPointSelectedManually(annotationPoint);
+            }
+        }
+
+        private void point2_Click(object sender, EventArgs e)
+        {
+            if (classification2.ForeColor == Color.Lime)
+            {
+                AnnotationPoint annotationPoint = new AnnotationPoint { point = point2, label = classification2 };
+                onPointSelectedManually(annotationPoint);
+            }
+        }
+
+        private void point3_Click(object sender, EventArgs e)
+        {
+            AnnotationPoint annotationPoint = new AnnotationPoint { point = point3, label = classification3 };
+            onPointSelectedManually(annotationPoint);
+        }
+
+        private void point4_Click(object sender, EventArgs e)
+        {
+            AnnotationPoint annotationPoint = new AnnotationPoint { point = point4, label = classification4 };
+            onPointSelectedManually(annotationPoint);
+        }
+
+        private void point5_Click(object sender, EventArgs e)
+        {
+            AnnotationPoint annotationPoint = new AnnotationPoint { point = point5, label = classification5 };
+            onPointSelectedManually(annotationPoint);
+        }
+
+        private void onPointSelectedManually(AnnotationPoint annotationPoint)
+        {
+            if(selectedPoint != null)
+            {
+                selectedPoint.point.Image = Properties.Resources.point;
+
+                if (selectedPoint.label.ForeColor != Color.Lime)
+                {
+                    pointsToClassify.Enqueue(selectedPoint);
+                }
+            }
+
+            selectedPoint = annotationPoint;
         }
     }
 }

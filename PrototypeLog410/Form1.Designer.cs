@@ -87,6 +87,7 @@
             this.classification2.Size = new System.Drawing.Size(189, 25);
             this.classification2.TabIndex = 13;
             this.classification2.Text = "Coral - Pink - 72%";
+            this.classification2.Click += new System.EventHandler(this.classification2_Click);
             // 
             // classification4
             // 
@@ -98,6 +99,7 @@
             this.classification4.Size = new System.Drawing.Size(193, 25);
             this.classification4.TabIndex = 14;
             this.classification4.Text = "Other - Alga - 90%";
+            this.classification4.Click += new System.EventHandler(this.classification4_Click);
             // 
             // classification5
             // 
@@ -109,6 +111,7 @@
             this.classification5.Size = new System.Drawing.Size(178, 25);
             this.classification5.TabIndex = 15;
             this.classification5.Text = "Fish - Pike - 96%";
+            this.classification5.Click += new System.EventHandler(this.classification5_Click);
             // 
             // classification3
             // 
@@ -120,56 +123,62 @@
             this.classification3.Size = new System.Drawing.Size(189, 25);
             this.classification3.TabIndex = 16;
             this.classification3.Text = "Coral - Pink - 92%";
+            this.classification3.Click += new System.EventHandler(this.classification3_Click);
             // 
             // segment5
             // 
             this.segment5.Image = global::PrototypeLog410.Properties.Resources.segment;
-            this.segment5.Location = new System.Drawing.Point(908, 451);
+            this.segment5.Location = new System.Drawing.Point(1010, 481);
             this.segment5.Name = "segment5";
             this.segment5.Size = new System.Drawing.Size(240, 106);
             this.segment5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.segment5.TabIndex = 11;
             this.segment5.TabStop = false;
+            this.segment5.Click += new System.EventHandler(this.segment5_Click);
             // 
             // segment2
             // 
             this.segment2.Image = global::PrototypeLog410.Properties.Resources.segment;
-            this.segment2.Location = new System.Drawing.Point(908, 185);
+            this.segment2.Location = new System.Drawing.Point(896, 98);
             this.segment2.Name = "segment2";
             this.segment2.Size = new System.Drawing.Size(240, 106);
             this.segment2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.segment2.TabIndex = 10;
             this.segment2.TabStop = false;
+            this.segment2.Click += new System.EventHandler(this.segment2_Click);
             // 
             // segment3
             // 
             this.segment3.Image = global::PrototypeLog410.Properties.Resources.segment;
-            this.segment3.Location = new System.Drawing.Point(700, 330);
+            this.segment3.Location = new System.Drawing.Point(832, 318);
             this.segment3.Name = "segment3";
             this.segment3.Size = new System.Drawing.Size(240, 106);
             this.segment3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.segment3.TabIndex = 9;
             this.segment3.TabStop = false;
+            this.segment3.Click += new System.EventHandler(this.segment3_Click);
             // 
             // segment4
             // 
             this.segment4.Image = global::PrototypeLog410.Properties.Resources.segment;
-            this.segment4.Location = new System.Drawing.Point(530, 451);
+            this.segment4.Location = new System.Drawing.Point(419, 528);
             this.segment4.Name = "segment4";
             this.segment4.Size = new System.Drawing.Size(240, 106);
             this.segment4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.segment4.TabIndex = 8;
             this.segment4.TabStop = false;
+            this.segment4.Click += new System.EventHandler(this.segment4_Click);
             // 
             // segment1
             // 
             this.segment1.Image = global::PrototypeLog410.Properties.Resources.segment;
-            this.segment1.Location = new System.Drawing.Point(513, 185);
+            this.segment1.Location = new System.Drawing.Point(445, 98);
             this.segment1.Name = "segment1";
             this.segment1.Size = new System.Drawing.Size(240, 106);
             this.segment1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.segment1.TabIndex = 7;
             this.segment1.TabStop = false;
+            this.segment1.Click += new System.EventHandler(this.segment1_Click);
             // 
             // point2
             // 
@@ -181,6 +190,7 @@
             this.point2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.point2.TabIndex = 6;
             this.point2.TabStop = false;
+            this.point2.Click += new System.EventHandler(this.point2_Click);
             // 
             // point4
             // 
@@ -192,6 +202,7 @@
             this.point4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.point4.TabIndex = 5;
             this.point4.TabStop = false;
+            this.point4.Click += new System.EventHandler(this.point4_Click);
             // 
             // point5
             // 
@@ -203,6 +214,7 @@
             this.point5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.point5.TabIndex = 4;
             this.point5.TabStop = false;
+            this.point5.Click += new System.EventHandler(this.point5_Click);
             // 
             // point3
             // 
@@ -214,6 +226,7 @@
             this.point3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.point3.TabIndex = 3;
             this.point3.TabStop = false;
+            this.point3.Click += new System.EventHandler(this.point3_Click);
             // 
             // point1
             // 
@@ -225,6 +238,7 @@
             this.point1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.point1.TabIndex = 2;
             this.point1.TabStop = false;
+            this.point1.Click += new System.EventHandler(this.point1_Click);
             // 
             // pictureBox1
             // 
