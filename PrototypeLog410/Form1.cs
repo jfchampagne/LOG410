@@ -16,6 +16,7 @@ namespace PrototypeLog410
 
         private AnnotationPoint selectedPoint;
         private Queue<AnnotationPoint> pointsToClassify;
+        private Queue<Image> images;
 
         public Form1()
         {
@@ -49,6 +50,9 @@ namespace PrototypeLog410
             pointsToClassify.Enqueue(annotation1);
             pointsToClassify.Enqueue(annotation2);
 
+            images = new Queue<Image>();
+            images.Enqueue(Properties.Resources.fond_marin2);
+
             selectedPoint = pointsToClassify.Dequeue();
 
             isPointRed = false;
@@ -60,6 +64,11 @@ namespace PrototypeLog410
 
         private void changeSelectedPointState(object sender, EventArgs args)
         {
+            if(selectedPoint == null)
+            {
+                return;
+            }
+
             if(isPointRed)
             {
                 selectedPoint.point.Image = Properties.Resources.point;
@@ -207,14 +216,28 @@ namespace PrototypeLog410
 
         private void saveSelectedChoice()
         {
+            if(selectedPoint == null)
+            {
+                return;
+            }
+
             string level1 = classChoices.CurrentRow.Cells[0].Value.ToString();
             string level2 = classChoices.CurrentRow.Cells[1].Value.ToString();
             string pct = classChoices.CurrentRow.Cells[2].Value.ToString();
 
             selectedPoint.label.Text = level1 + " - " + level2 + " - " + pct + "%";
             selectedPoint.label.ForeColor = Color.Lime;
+            selectedPoint.point.Image = Properties.Resources.point;
 
-            selectedPoint = pointsToClassify.Dequeue();
+            if (pointsToClassify.Count != 0)
+            {
+                selectedPoint = pointsToClassify.Dequeue();
+            }
+            else if(images.Count != 0)
+            {
+                pictureBox1.Image = images.Dequeue();
+                selectedPoint = null;
+            }
         }
     }
 }
