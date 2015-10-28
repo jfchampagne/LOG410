@@ -242,6 +242,7 @@
             this.filterTextBox.Size = new System.Drawing.Size(287, 20);
             this.filterTextBox.TabIndex = 17;
             this.filterTextBox.TextChanged += new System.EventHandler(this.filterTextBox_TextChanged);
+            this.filterTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.filterTextBox_keyDown);
             // 
             // classChoiceBindingSource
             // 

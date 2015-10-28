@@ -13,7 +13,9 @@ namespace PrototypeLog410
     public partial class Form1 : Form
     {
         private bool isPointRed;
-        private PictureBox selectedPoint;
+
+        private AnnotationPoint selectedPoint;
+        private Queue<AnnotationPoint> pointsToClassify;
 
         public Form1()
         {
@@ -40,7 +42,14 @@ namespace PrototypeLog410
             addAnnotationPoint(point4, segment4, classification4, 0.75f, 0.25f);
             addAnnotationPoint(point5, segment5, classification5, 0.50f, 0.50f);
 
-            selectedPoint = point1;
+            AnnotationPoint annotation1 = new AnnotationPoint { point = point1, label = classification1 };
+            AnnotationPoint annotation2 = new AnnotationPoint { point = point2, label = classification2 };
+
+            pointsToClassify = new Queue<AnnotationPoint>();
+            pointsToClassify.Enqueue(annotation1);
+            pointsToClassify.Enqueue(annotation2);
+
+            selectedPoint = pointsToClassify.Dequeue();
 
             isPointRed = false;
             Timer redPointTimer = new Timer();
@@ -53,11 +62,11 @@ namespace PrototypeLog410
         {
             if(isPointRed)
             {
-                selectedPoint.Image = Properties.Resources.point;
+                selectedPoint.point.Image = Properties.Resources.point;
             }
             else
             {
-                selectedPoint.Image = Properties.Resources.point_rouge;
+                selectedPoint.point.Image = Properties.Resources.point_rouge;
             }
 
             isPointRed = !isPointRed;
@@ -93,6 +102,12 @@ namespace PrototypeLog410
             public float Pourcentage { get; set; }
         }
 
+        public class AnnotationPoint
+        {
+            public PictureBox point { get; set; }
+            public Label label { get; set; }
+        }
+
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
@@ -105,16 +120,36 @@ namespace PrototypeLog410
 
         private void Form1_keyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
-            if(!filterTextBox.Focused)
+            if (e.KeyValue >= 37 && e.KeyValue <= 40) //Arrows
             {
-                filterTextBox.Focus();
-                filterTextBox.Text += Char.ToLower((char)e.KeyValue);
-
-                if(filterTextBox.Text.Length > 0)
+                classChoices.Focus();
+            }
+            else if(e.KeyValue == 13) //Enter
+            {
+                saveSelectedChoice();
+            }
+            else
+            {
+                if (!filterTextBox.Focused)
                 {
-                    filterTextBox.SelectionStart = filterTextBox.Text.Length;
-                    filterTextBox.SelectionLength = 0;
+                    filterTextBox.Focus();
+                    filterTextBox.Text += Char.ToLower((char)e.KeyValue);
+
+                    if (filterTextBox.Text.Length > 0)
+                    {
+                        filterTextBox.SelectionStart = filterTextBox.Text.Length;
+                        filterTextBox.SelectionLength = 0;
+                    }
                 }
+            }
+        }
+
+        private void filterTextBox_keyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+                e.SuppressKeyPress = true;
             }
         }
 
@@ -168,6 +203,18 @@ namespace PrototypeLog410
                     classChoices.CurrentCell = row.Cells[0];
                 }
             }
+        }
+
+        private void saveSelectedChoice()
+        {
+            string level1 = classChoices.CurrentRow.Cells[0].Value.ToString();
+            string level2 = classChoices.CurrentRow.Cells[1].Value.ToString();
+            string pct = classChoices.CurrentRow.Cells[2].Value.ToString();
+
+            selectedPoint.label.Text = level1 + " - " + level2 + " - " + pct + "%";
+            selectedPoint.label.ForeColor = Color.Lime;
+
+            selectedPoint = pointsToClassify.Dequeue();
         }
     }
 }
