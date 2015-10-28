@@ -19,9 +19,13 @@ namespace PrototypeLog410
         private Queue<Image> images;
         private bool changingPoint;
 
+        private AnnotationPointDrag annotationPointDrag;
+
         public Form1()
         {
             InitializeComponent();
+
+            Application.AddMessageFilter(new MouseUpEventFilter(onMouseRelease));
 
             ClassChoice[] classChoicesArray = new ClassChoice[]{
             new ClassChoice{Level1 = "Coral", Level2="Pink", Pourcentage=72 }
@@ -66,16 +70,18 @@ namespace PrototypeLog410
             redPointTimer.Start();
 
             changingPoint = false;
+
+            annotationPointDrag = null;
         }
 
         private void changeSelectedPointState(object sender, EventArgs args)
         {
-            if(selectedPoint == null)
+            if (selectedPoint == null)
             {
                 return;
             }
 
-            if(isPointRed)
+            if (isPointRed)
             {
                 selectedPoint.point.Image = Properties.Resources.point;
             }
@@ -110,19 +116,6 @@ namespace PrototypeLog410
 
         }
 
-        public class ClassChoice
-        {
-            public string Level1 { get; set; }
-            public string Level2 { get; set; }
-            public float Pourcentage { get; set; }
-        }
-
-        public class AnnotationPoint
-        {
-            public PictureBox point { get; set; }
-            public Label label { get; set; }
-        }
-
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
@@ -134,7 +127,7 @@ namespace PrototypeLog410
             {
                 classChoices.Focus();
             }
-            else if(e.KeyValue == 13) //Enter
+            else if (e.KeyValue == 13) //Enter
             {
                 saveSelectedChoice();
             }
@@ -156,7 +149,7 @@ namespace PrototypeLog410
 
         private void filterTextBox_keyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 e.Handled = true;
                 e.SuppressKeyPress = true;
@@ -168,7 +161,7 @@ namespace PrototypeLog410
             filterTextBox.Text = filterTextBox.Text.ToLower();
             filterTextBox.SelectionStart = filterTextBox.Text.Length;
             filterTextBox.SelectionLength = 0;
-            
+
             string[] filters = filterTextBox.Text.Split(new char[] { ' ' });
 
             foreach (DataGridViewRow classChoice in classChoices.Rows)
@@ -206,11 +199,11 @@ namespace PrototypeLog410
 
             foreach (DataGridViewRow row in classChoices.Rows)
             {
-                if(firstAlreadySelected || !row.Visible)
+                if (firstAlreadySelected || !row.Visible)
                 {
                     row.Selected = false;
                 }
-                else if(row.Visible)
+                else if (row.Visible)
                 {
                     firstAlreadySelected = true;
                     selectRow(row);
@@ -227,7 +220,7 @@ namespace PrototypeLog410
 
         private void saveSelectedChoice()
         {
-            if(selectedPoint == null)
+            if (selectedPoint == null)
             {
                 return;
             }
@@ -244,7 +237,7 @@ namespace PrototypeLog410
             {
                 selectedPoint = pointsToClassify.Dequeue();
             }
-            else if(images.Count != 0)
+            else if (images.Count != 0)
             {
                 pictureBox1.Image = images.Dequeue();
                 selectedPoint = null;
@@ -255,7 +248,7 @@ namespace PrototypeLog410
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(images.Count == 0)
+            if (images.Count == 0)
             {
                 return;
             }
@@ -263,7 +256,7 @@ namespace PrototypeLog410
             selectedPoint.point.Image = Properties.Resources.point;
             selectedPoint.label.ForeColor = Color.Lime;
 
-            if(pointsToClassify.Count != 0)
+            if (pointsToClassify.Count != 0)
             {
                 selectedPoint = pointsToClassify.Dequeue();
                 selectedPoint.point.Image = Properties.Resources.point;
@@ -276,7 +269,7 @@ namespace PrototypeLog410
 
         private void segment1_Click(object sender, EventArgs e)
         {
-            if(classification1.ForeColor == Color.Lime)
+            if (classification1.ForeColor == Color.Lime)
             {
                 AnnotationPoint annotationPoint = new AnnotationPoint { point = point1, label = classification1 };
                 onPointSelectedManually(annotationPoint);
@@ -346,40 +339,76 @@ namespace PrototypeLog410
             onPointSelectedManually(annotationPoint);
         }
 
-        private void point1_Click(object sender, EventArgs e)
+        private void point1_Click(object sender, MouseEventArgs e)
         {
-            if(classification1.ForeColor == Color.Lime)
+            if (classification1.ForeColor == Color.Lime)
             {
                 AnnotationPoint annotationPoint = new AnnotationPoint { point = point1, label = classification1 };
                 onPointSelectedManually(annotationPoint);
             }
         }
 
-        private void point2_Click(object sender, EventArgs e)
+        private void point2_Click(object sender, MouseEventArgs e)
         {
+            AnnotationPoint annotationPoint = new AnnotationPoint { point = point2, label = classification2 };
+
             if (classification2.ForeColor == Color.Lime)
             {
-                AnnotationPoint annotationPoint = new AnnotationPoint { point = point2, label = classification2 };
                 onPointSelectedManually(annotationPoint);
             }
+
+            startDraggingPoint(annotationPoint, e);
         }
 
-        private void point3_Click(object sender, EventArgs e)
+        private void point3_Click(object sender, MouseEventArgs e)
         {
             AnnotationPoint annotationPoint = new AnnotationPoint { point = point3, label = classification3 };
             onPointSelectedManually(annotationPoint);
+
+            startDraggingPoint(annotationPoint, e);
         }
 
-        private void point4_Click(object sender, EventArgs e)
+        private void point4_Click(object sender, MouseEventArgs e)
         {
             AnnotationPoint annotationPoint = new AnnotationPoint { point = point4, label = classification4 };
             onPointSelectedManually(annotationPoint);
+
+            startDraggingPoint(annotationPoint, e);
         }
 
-        private void point5_Click(object sender, EventArgs e)
+        private void point5_Click(object sender, MouseEventArgs e)
         {
             AnnotationPoint annotationPoint = new AnnotationPoint { point = point5, label = classification5 };
             onPointSelectedManually(annotationPoint);
+
+            startDraggingPoint(annotationPoint, e);
+        }
+
+        private void mouseDownOnPoint1(object sender, MouseEventArgs e)
+        {
+            Console.WriteLine("HELLO WORLD!!!!");
+
+            AnnotationPoint annotationPoint = new AnnotationPoint { point = point1, label = classification1 };
+            startDraggingPoint(annotationPoint, e);
+        }
+
+        private void startDraggingPoint(AnnotationPoint annotationPoint, MouseEventArgs e)
+        {
+            annotationPointDrag = new AnnotationPointDrag { startX = e.X, startY = e.Y, point = annotationPoint };
+        }
+
+        private void onMouseRelease(int mouseX, int mouseY)
+        {
+            if(annotationPointDrag != null)
+            {
+                int xTranslation = mouseX - annotationPointDrag.startX;
+                int yTranslation = mouseY - annotationPointDrag.startY;
+
+                Point currLocation = annotationPointDrag.point.point.Location;
+                annotationPointDrag.point.point.Location = new Point(currLocation.X + xTranslation, currLocation.Y + yTranslation);
+
+                annotationPointDrag = null;
+            }
         }
 
         private void onPointSelectedManually(AnnotationPoint annotationPoint)
@@ -423,6 +452,26 @@ namespace PrototypeLog410
                     }
                 }
             }
+        }
+
+        public class ClassChoice
+        {
+            public string Level1 { get; set; }
+            public string Level2 { get; set; }
+            public float Pourcentage { get; set; }
+        }
+
+        public class AnnotationPoint
+        {
+            public PictureBox point { get; set; }
+            public Label label { get; set; }
+        }
+
+        public class AnnotationPointDrag
+        {
+            public int startX { get; set; }
+            public int startY { get; set; }
+            public AnnotationPoint point { get; set; }
         }
     }
 }
