@@ -123,21 +123,27 @@ namespace PrototypeLog410
             filterTextBox.Text = filterTextBox.Text.ToLower();
             filterTextBox.SelectionStart = filterTextBox.Text.Length;
             filterTextBox.SelectionLength = 0;
+            
+            string[] filters = filterTextBox.Text.Split(new char[] { ' ' });
 
             foreach (DataGridViewRow classChoice in classChoices.Rows)
             {
                 string level1 = classChoice.Cells[0].Value.ToString().ToLower();
                 string level2 = classChoice.Cells[1].Value.ToString().ToLower();
 
-                if (level1.Contains(filterTextBox.Text) || level2.Contains(filterTextBox.Text))
+                foreach (string filter in filters)
                 {
-                    classChoice.Visible = true;
-                }
-                else
-                {
-                    BindingContext[classChoices.DataSource].SuspendBinding();
-                    classChoice.Visible = false;
-                    BindingContext[classChoices.DataSource].ResumeBinding();
+                    if (level1.Contains(filter) || level2.Contains(filter))
+                    {
+                        classChoice.Visible = true;
+                    }
+                    else
+                    {
+                        BindingContext[classChoices.DataSource].SuspendBinding();
+                        classChoice.Visible = false;
+                        BindingContext[classChoices.DataSource].ResumeBinding();
+                        break;
+                    }
                 }
             }
         }
