@@ -49,6 +49,7 @@
             this.classChoiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.classChoices = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.segment5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.segment2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.segment3)).BeginInit();
@@ -267,11 +268,22 @@
             this.label1.TabIndex = 19;
             this.label1.Text = "Filter";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1192, 661);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(145, 23);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "Save";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1350, 730);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.classChoices);
             this.Controls.Add(this.filterTextBox);
@@ -335,6 +347,7 @@
         private System.Windows.Forms.BindingSource classChoiceBindingSource;
         private System.Windows.Forms.DataGridView classChoices;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
     }
 }
 

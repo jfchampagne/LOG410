@@ -239,5 +239,26 @@ namespace PrototypeLog410
                 selectedPoint = null;
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if(images.Count == 0)
+            {
+                return;
+            }
+
+            selectedPoint.point.Image = Properties.Resources.point;
+            selectedPoint.label.ForeColor = Color.Lime;
+
+            if(pointsToClassify.Count != 0)
+            {
+                selectedPoint = pointsToClassify.Dequeue();
+                selectedPoint.point.Image = Properties.Resources.point;
+                selectedPoint.label.ForeColor = Color.Lime;
+            }
+
+            pictureBox1.Image = images.Dequeue();
+            selectedPoint = null;
+        }
     }
 }
