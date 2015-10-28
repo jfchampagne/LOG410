@@ -20,30 +20,19 @@ namespace PrototypeLog410
             InitializeComponent();
 
             ClassChoice[] classChoicesArray = new ClassChoice[]{
-            new ClassChoice{Niveau1 = "Coral", Niveau2="Pink", Pourcentage=72 }
-            , new ClassChoice{Niveau1 = "Coral", Niveau2="Red", Pourcentage=21 }
-            , new ClassChoice{Niveau1 = "Coral", Niveau2="Blue", Pourcentage=3 }
-            , new ClassChoice{Niveau1 = "Coral", Niveau2="Green", Pourcentage=2 }
-            , new ClassChoice{Niveau1 = "Fish", Niveau2="Pike", Pourcentage=0.5f }
-            , new ClassChoice{Niveau1 = "Fish", Niveau2="Shark", Pourcentage=0.5f }
-            , new ClassChoice{Niveau1 = "Fish", Niveau2="Dolphin", Pourcentage=0.4f }
-            , new ClassChoice{Niveau1 = "Other", Niveau2="Sand", Pourcentage=0.2f }
-            , new ClassChoice{Niveau1 = "Other", Niveau2="Alga", Pourcentage=0.2f }
-            , new ClassChoice{Niveau1 = "Other", Niveau2="Rock", Pourcentage=0.2f }
+            new ClassChoice{Level1 = "Coral", Level2="Pink", Pourcentage=72 }
+            , new ClassChoice{Level1 = "Coral", Level2="Red", Pourcentage=21 }
+            , new ClassChoice{Level1 = "Coral", Level2="Blue", Pourcentage=3 }
+            , new ClassChoice{Level1 = "Coral", Level2="Green", Pourcentage=2 }
+            , new ClassChoice{Level1 = "Fish", Level2="Pike", Pourcentage=0.5f }
+            , new ClassChoice{Level1 = "Fish", Level2="Shark", Pourcentage=0.5f }
+            , new ClassChoice{Level1 = "Fish", Level2="Dolphin", Pourcentage=0.4f }
+            , new ClassChoice{Level1 = "Other", Level2="Sand", Pourcentage=0.2f }
+            , new ClassChoice{Level1 = "Other", Level2="Alga", Pourcentage=0.2f }
+            , new ClassChoice{Level1 = "Other", Level2="Rock", Pourcentage=0.2f }
             };
 
-            int classChoicesCount = classChoicesArray.Length;
-            for(int i = 0; i < classChoicesCount; ++i)
-            {
-                ClassChoice currChoice = classChoicesArray[i];
-
-                if(i < classChoicesCount - 1)
-                    classChoices.Rows.Add();
-
-                classChoices.Rows[i].Cells[0].Value = currChoice.Niveau1;
-                classChoices.Rows[i].Cells[1].Value = currChoice.Niveau2;
-                classChoices.Rows[i].Cells[2].Value = currChoice.Pourcentage;
-            }
+            classChoices.DataSource = classChoicesArray;
 
             addAnnotationPoint(point1, segment1, classification1, 0.25f, 0.25f);
             addAnnotationPoint(point2, segment2, classification2, 0.25f, 0.75f);
@@ -99,8 +88,8 @@ namespace PrototypeLog410
 
         public class ClassChoice
         {
-            public string Niveau1 { get; set; }
-            public string Niveau2 { get; set; }
+            public string Level1 { get; set; }
+            public string Level2 { get; set; }
             public float Pourcentage { get; set; }
         }
 
@@ -112,6 +101,45 @@ namespace PrototypeLog410
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Form1_keyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            if(!filterTextBox.Focused)
+            {
+                filterTextBox.Focus();
+                filterTextBox.Text += Char.ToLower((char)e.KeyValue);
+
+                if(filterTextBox.Text.Length > 0)
+                {
+                    filterTextBox.SelectionStart = filterTextBox.Text.Length;
+                    filterTextBox.SelectionLength = 0;
+                }
+            }
+        }
+
+        private void filterTextBox_TextChanged(object sender, EventArgs e)
+        {
+            filterTextBox.Text = filterTextBox.Text.ToLower();
+            filterTextBox.SelectionStart = filterTextBox.Text.Length;
+            filterTextBox.SelectionLength = 0;
+
+            foreach (DataGridViewRow classChoice in classChoices.Rows)
+            {
+                string level1 = classChoice.Cells[0].Value.ToString().ToLower();
+                string level2 = classChoice.Cells[1].Value.ToString().ToLower();
+
+                if (level1.Contains(filterTextBox.Text) || level2.Contains(filterTextBox.Text))
+                {
+                    classChoice.Visible = true;
+                }
+                else
+                {
+                    BindingContext[classChoices.DataSource].SuspendBinding();
+                    classChoice.Visible = false;
+                    BindingContext[classChoices.DataSource].ResumeBinding();
+                }
+            }
         }
     }
 }

@@ -28,10 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.classChoices = new System.Windows.Forms.DataGridView();
-            this.Level1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Level2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pct = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.components = new System.ComponentModel.Container();
+            this.classification1 = new System.Windows.Forms.Label();
+            this.classification2 = new System.Windows.Forms.Label();
+            this.classification4 = new System.Windows.Forms.Label();
+            this.classification5 = new System.Windows.Forms.Label();
+            this.classification3 = new System.Windows.Forms.Label();
+            this.segment5 = new System.Windows.Forms.PictureBox();
+            this.segment2 = new System.Windows.Forms.PictureBox();
+            this.segment3 = new System.Windows.Forms.PictureBox();
+            this.segment4 = new System.Windows.Forms.PictureBox();
             this.segment1 = new System.Windows.Forms.PictureBox();
             this.point2 = new System.Windows.Forms.PictureBox();
             this.point4 = new System.Windows.Forms.PictureBox();
@@ -39,16 +45,13 @@
             this.point3 = new System.Windows.Forms.PictureBox();
             this.point1 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.segment4 = new System.Windows.Forms.PictureBox();
-            this.segment3 = new System.Windows.Forms.PictureBox();
-            this.segment2 = new System.Windows.Forms.PictureBox();
-            this.segment5 = new System.Windows.Forms.PictureBox();
-            this.classification1 = new System.Windows.Forms.Label();
-            this.classification2 = new System.Windows.Forms.Label();
-            this.classification4 = new System.Windows.Forms.Label();
-            this.classification5 = new System.Windows.Forms.Label();
-            this.classification3 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.classChoices)).BeginInit();
+            this.filterTextBox = new System.Windows.Forms.TextBox();
+            this.classChoiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.classChoices = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.segment5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.segment2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.segment3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.segment4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.segment1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.point2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.point4)).BeginInit();
@@ -56,44 +59,105 @@
             ((System.ComponentModel.ISupportInitialize)(this.point3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.point1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.segment4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.segment3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.segment2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.segment5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classChoiceBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classChoices)).BeginInit();
             this.SuspendLayout();
             // 
-            // classChoices
+            // classification1
             // 
-            this.classChoices.AccessibleName = "";
-            this.classChoices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.classChoices.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Level1,
-            this.Level2,
-            this.pct});
-            this.classChoices.Location = new System.Drawing.Point(1, 1);
-            this.classChoices.Name = "classChoices";
-            this.classChoices.RowHeadersWidth = 20;
-            this.classChoices.Size = new System.Drawing.Size(322, 462);
-            this.classChoices.TabIndex = 0;
-            this.classChoices.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.classification1.AutoSize = true;
+            this.classification1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
+            this.classification1.ForeColor = System.Drawing.Color.Red;
+            this.classification1.Location = new System.Drawing.Point(501, 248);
+            this.classification1.Name = "classification1";
+            this.classification1.Size = new System.Drawing.Size(197, 25);
+            this.classification1.TabIndex = 12;
+            this.classification1.Text = "Other - Rock - 22%";
+            this.classification1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // Level1
+            // classification2
             // 
-            this.Level1.HeaderText = "Level 1";
-            this.Level1.Name = "Level1";
-            this.Level1.ReadOnly = true;
+            this.classification2.AutoSize = true;
+            this.classification2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
+            this.classification2.ForeColor = System.Drawing.Color.Red;
+            this.classification2.Location = new System.Drawing.Point(586, 353);
+            this.classification2.Name = "classification2";
+            this.classification2.Size = new System.Drawing.Size(189, 25);
+            this.classification2.TabIndex = 13;
+            this.classification2.Text = "Coral - Pink - 72%";
             // 
-            // Level2
+            // classification4
             // 
-            this.Level2.HeaderText = "Level 2";
-            this.Level2.Name = "Level2";
-            this.Level2.ReadOnly = true;
+            this.classification4.AutoSize = true;
+            this.classification4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
+            this.classification4.ForeColor = System.Drawing.Color.Lime;
+            this.classification4.Location = new System.Drawing.Point(568, 423);
+            this.classification4.Name = "classification4";
+            this.classification4.Size = new System.Drawing.Size(193, 25);
+            this.classification4.TabIndex = 14;
+            this.classification4.Text = "Other - Alga - 90%";
             // 
-            // pct
+            // classification5
             // 
-            this.pct.HeaderText = "%";
-            this.pct.Name = "pct";
-            this.pct.ReadOnly = true;
+            this.classification5.AutoSize = true;
+            this.classification5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
+            this.classification5.ForeColor = System.Drawing.Color.Lime;
+            this.classification5.Location = new System.Drawing.Point(750, 560);
+            this.classification5.Name = "classification5";
+            this.classification5.Size = new System.Drawing.Size(178, 25);
+            this.classification5.TabIndex = 15;
+            this.classification5.Text = "Fish - Pike - 96%";
+            // 
+            // classification3
+            // 
+            this.classification3.AutoSize = true;
+            this.classification3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
+            this.classification3.ForeColor = System.Drawing.Color.Lime;
+            this.classification3.Location = new System.Drawing.Point(414, 388);
+            this.classification3.Name = "classification3";
+            this.classification3.Size = new System.Drawing.Size(189, 25);
+            this.classification3.TabIndex = 16;
+            this.classification3.Text = "Coral - Pink - 92%";
+            // 
+            // segment5
+            // 
+            this.segment5.Image = global::PrototypeLog410.Properties.Resources.segment;
+            this.segment5.Location = new System.Drawing.Point(908, 451);
+            this.segment5.Name = "segment5";
+            this.segment5.Size = new System.Drawing.Size(240, 106);
+            this.segment5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.segment5.TabIndex = 11;
+            this.segment5.TabStop = false;
+            // 
+            // segment2
+            // 
+            this.segment2.Image = global::PrototypeLog410.Properties.Resources.segment;
+            this.segment2.Location = new System.Drawing.Point(908, 185);
+            this.segment2.Name = "segment2";
+            this.segment2.Size = new System.Drawing.Size(240, 106);
+            this.segment2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.segment2.TabIndex = 10;
+            this.segment2.TabStop = false;
+            // 
+            // segment3
+            // 
+            this.segment3.Image = global::PrototypeLog410.Properties.Resources.segment;
+            this.segment3.Location = new System.Drawing.Point(700, 330);
+            this.segment3.Name = "segment3";
+            this.segment3.Size = new System.Drawing.Size(240, 106);
+            this.segment3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.segment3.TabIndex = 9;
+            this.segment3.TabStop = false;
+            // 
+            // segment4
+            // 
+            this.segment4.Image = global::PrototypeLog410.Properties.Resources.segment;
+            this.segment4.Location = new System.Drawing.Point(530, 451);
+            this.segment4.Name = "segment4";
+            this.segment4.Size = new System.Drawing.Size(240, 106);
+            this.segment4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.segment4.TabIndex = 8;
+            this.segment4.TabStop = false;
             // 
             // segment1
             // 
@@ -170,107 +234,33 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // segment4
+            // filterTextBox
             // 
-            this.segment4.Image = global::PrototypeLog410.Properties.Resources.segment;
-            this.segment4.Location = new System.Drawing.Point(530, 451);
-            this.segment4.Name = "segment4";
-            this.segment4.Size = new System.Drawing.Size(240, 106);
-            this.segment4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.segment4.TabIndex = 8;
-            this.segment4.TabStop = false;
+            this.filterTextBox.Location = new System.Drawing.Point(1, 481);
+            this.filterTextBox.Name = "filterTextBox";
+            this.filterTextBox.Size = new System.Drawing.Size(322, 20);
+            this.filterTextBox.TabIndex = 17;
+            this.filterTextBox.TextChanged += new System.EventHandler(this.filterTextBox_TextChanged);
             // 
-            // segment3
+            // classChoiceBindingSource
             // 
-            this.segment3.Image = global::PrototypeLog410.Properties.Resources.segment;
-            this.segment3.Location = new System.Drawing.Point(700, 330);
-            this.segment3.Name = "segment3";
-            this.segment3.Size = new System.Drawing.Size(240, 106);
-            this.segment3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.segment3.TabIndex = 9;
-            this.segment3.TabStop = false;
+            this.classChoiceBindingSource.DataSource = typeof(PrototypeLog410.Form1.ClassChoice);
             // 
-            // segment2
+            // classChoices
             // 
-            this.segment2.Image = global::PrototypeLog410.Properties.Resources.segment;
-            this.segment2.Location = new System.Drawing.Point(908, 185);
-            this.segment2.Name = "segment2";
-            this.segment2.Size = new System.Drawing.Size(240, 106);
-            this.segment2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.segment2.TabIndex = 10;
-            this.segment2.TabStop = false;
-            // 
-            // segment5
-            // 
-            this.segment5.Image = global::PrototypeLog410.Properties.Resources.segment;
-            this.segment5.Location = new System.Drawing.Point(908, 451);
-            this.segment5.Name = "segment5";
-            this.segment5.Size = new System.Drawing.Size(240, 106);
-            this.segment5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.segment5.TabIndex = 11;
-            this.segment5.TabStop = false;
-            // 
-            // classification1
-            // 
-            this.classification1.AutoSize = true;
-            this.classification1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.classification1.ForeColor = System.Drawing.Color.Red;
-            this.classification1.Location = new System.Drawing.Point(501, 248);
-            this.classification1.Name = "classification1";
-            this.classification1.Size = new System.Drawing.Size(197, 25);
-            this.classification1.TabIndex = 12;
-            this.classification1.Text = "Other - Rock - 22%";
-            this.classification1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // classification2
-            // 
-            this.classification2.AutoSize = true;
-            this.classification2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.classification2.ForeColor = System.Drawing.Color.Red;
-            this.classification2.Location = new System.Drawing.Point(586, 353);
-            this.classification2.Name = "classification2";
-            this.classification2.Size = new System.Drawing.Size(189, 25);
-            this.classification2.TabIndex = 13;
-            this.classification2.Text = "Coral - Pink - 72%";
-            // 
-            // classification4
-            // 
-            this.classification4.AutoSize = true;
-            this.classification4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.classification4.ForeColor = System.Drawing.Color.Lime;
-            this.classification4.Location = new System.Drawing.Point(568, 423);
-            this.classification4.Name = "classification4";
-            this.classification4.Size = new System.Drawing.Size(193, 25);
-            this.classification4.TabIndex = 14;
-            this.classification4.Text = "Other - Alga - 90%";
-            // 
-            // classification5
-            // 
-            this.classification5.AutoSize = true;
-            this.classification5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.classification5.ForeColor = System.Drawing.Color.Lime;
-            this.classification5.Location = new System.Drawing.Point(750, 560);
-            this.classification5.Name = "classification5";
-            this.classification5.Size = new System.Drawing.Size(178, 25);
-            this.classification5.TabIndex = 15;
-            this.classification5.Text = "Fish - Pike - 96%";
-            // 
-            // classification3
-            // 
-            this.classification3.AutoSize = true;
-            this.classification3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.classification3.ForeColor = System.Drawing.Color.Lime;
-            this.classification3.Location = new System.Drawing.Point(414, 388);
-            this.classification3.Name = "classification3";
-            this.classification3.Size = new System.Drawing.Size(189, 25);
-            this.classification3.TabIndex = 16;
-            this.classification3.Text = "Coral - Pink - 92%";
+            this.classChoices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.classChoices.Location = new System.Drawing.Point(1, 13);
+            this.classChoices.Name = "classChoices";
+            this.classChoices.Size = new System.Drawing.Size(322, 462);
+            this.classChoices.TabIndex = 18;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1350, 730);
+            this.Controls.Add(this.classChoices);
+            this.Controls.Add(this.filterTextBox);
             this.Controls.Add(this.classification3);
             this.Controls.Add(this.classification5);
             this.Controls.Add(this.classification4);
@@ -287,11 +277,15 @@
             this.Controls.Add(this.point3);
             this.Controls.Add(this.point1);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.classChoices);
+            this.KeyPreview = true;
             this.Name = "Form1";
             this.Text = "SmartReef";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            ((System.ComponentModel.ISupportInitialize)(this.classChoices)).EndInit();
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_keyDown);
+            ((System.ComponentModel.ISupportInitialize)(this.segment5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.segment2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.segment3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.segment4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.segment1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.point2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.point4)).EndInit();
@@ -299,21 +293,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.point3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.point1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.segment4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.segment3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.segment2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.segment5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classChoiceBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classChoices)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView classChoices;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Level1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Level2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pct;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox point1;
         private System.Windows.Forms.PictureBox point3;
@@ -330,6 +317,9 @@
         private System.Windows.Forms.Label classification4;
         private System.Windows.Forms.Label classification5;
         private System.Windows.Forms.Label classification3;
+        private System.Windows.Forms.TextBox filterTextBox;
+        private System.Windows.Forms.BindingSource classChoiceBindingSource;
+        private System.Windows.Forms.DataGridView classChoices;
     }
 }
 
