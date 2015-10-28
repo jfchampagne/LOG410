@@ -17,6 +17,7 @@ namespace PrototypeLog410
         private AnnotationPoint selectedPoint;
         private Queue<AnnotationPoint> pointsToClassify;
         private Queue<Image> images;
+        private bool changingPoint;
 
         public Form1()
         {
@@ -63,6 +64,8 @@ namespace PrototypeLog410
             redPointTimer.Tick += new EventHandler(changeSelectedPointState);
             redPointTimer.Interval = 500;
             redPointTimer.Start();
+
+            changingPoint = false;
         }
 
         private void changeSelectedPointState(object sender, EventArgs args)
@@ -189,7 +192,12 @@ namespace PrototypeLog410
                 }
             }
 
-            selectFirstVisibleClassChoice();
+            if (!changingPoint)
+            {
+                selectFirstVisibleClassChoice();
+            }
+
+            changingPoint = false;
         }
 
         private void selectFirstVisibleClassChoice()
@@ -205,11 +213,16 @@ namespace PrototypeLog410
                 else if(row.Visible)
                 {
                     firstAlreadySelected = true;
-                    row.Selected = true;
-                    row.Cells[0].Selected = true;
-                    classChoices.CurrentCell = row.Cells[0];
+                    selectRow(row);
                 }
             }
+        }
+
+        private void selectRow(DataGridViewRow row)
+        {
+            row.Selected = true;
+            row.Cells[0].Selected = true;
+            classChoices.CurrentCell = row.Cells[0];
         }
 
         private void saveSelectedChoice()
@@ -236,6 +249,8 @@ namespace PrototypeLog410
                 pictureBox1.Image = images.Dequeue();
                 selectedPoint = null;
             }
+
+            selectCurrClassification();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -380,6 +395,34 @@ namespace PrototypeLog410
             }
 
             selectedPoint = annotationPoint;
+
+            selectCurrClassification();
+        }
+
+        private void selectCurrClassification()
+        {
+            changingPoint = true;
+
+            filterTextBox.Text = "";
+
+            if(selectedPoint != null)
+            {
+                foreach (DataGridViewRow row in classChoices.Rows)
+                {
+                    row.Selected = false;
+                }
+
+                string[] classInfo = selectedPoint.label.Text.Split(new char[] { '-' });
+                foreach(DataGridViewRow row in classChoices.Rows)
+                {
+                    if (row.Cells[0].Value.ToString().Equals(classInfo[0].Trim()) &&
+                       row.Cells[1].Value.ToString().Equals(classInfo[1].Trim()))
+                    {
+                        selectRow(row);
+                        break;
+                    }
+                }
+            }
         }
     }
 }
