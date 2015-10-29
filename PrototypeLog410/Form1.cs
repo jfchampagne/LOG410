@@ -103,12 +103,20 @@ namespace PrototypeLog410
 
             segmentPictureBox.Parent = pictureBox1;
             segmentPictureBox.BackColor = Color.Transparent;
-            segmentPictureBox.Location = new Point(pointCoordinates.X - (segmentPictureBox.Size.Width - pictureBox.Size.Width) / 2, pointCoordinates.Y - (segmentPictureBox.Size.Height - pictureBox.Size.Height) / 2);
 
             classificationLabel.Parent = segmentPictureBox;
             classificationLabel.BackColor = Color.Transparent;
-            classificationLabel.Location = new Point((segmentPictureBox.Size.Width - classificationLabel.Size.Width) / 2, (segmentPictureBox.Size.Height + pictureBox.Size.Height) / 2 + 5);
+
             classificationLabel.BringToFront();
+
+            positionSegmentAndLabel(pointCoordinates, pictureBox, segmentPictureBox, classificationLabel);
+        }
+
+        private void positionSegmentAndLabel(Point pointCoordinates, PictureBox pictureBox, PictureBox segmentPictureBox, Label classificationLabel)
+        {
+            segmentPictureBox.Location = new Point(pointCoordinates.X - (segmentPictureBox.Size.Width - pictureBox.Size.Width) / 2, pointCoordinates.Y - (segmentPictureBox.Size.Height - pictureBox.Size.Height) / 2);
+
+            classificationLabel.Location = new Point((segmentPictureBox.Size.Width - classificationLabel.Size.Width) / 2, (segmentPictureBox.Size.Height + pictureBox.Size.Height) / 2 + 5);
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -386,31 +394,31 @@ namespace PrototypeLog410
 
         private void mouseDownOnPoint1(object sender, MouseEventArgs e)
         {
-            AnnotationPoint annotationPoint = new AnnotationPoint { point = point1, label = classification1 };
+            AnnotationPoint annotationPoint = new AnnotationPoint { point = point1, label = classification1, segment = segment1 };
             startDraggingPoint(annotationPoint, e);
         }
 
         private void mouseDownOnPoint2(object sender, MouseEventArgs e)
         {
-            AnnotationPoint annotationPoint = new AnnotationPoint { point = point2, label = classification2 };
+            AnnotationPoint annotationPoint = new AnnotationPoint { point = point2, label = classification2, segment = segment2 };
             startDraggingPoint(annotationPoint, e);
         }
 
         private void mouseDownOnPoint3(object sender, MouseEventArgs e)
         {
-            AnnotationPoint annotationPoint = new AnnotationPoint { point = point3, label = classification3 };
+            AnnotationPoint annotationPoint = new AnnotationPoint { point = point3, label = classification3, segment = segment3 };
             startDraggingPoint(annotationPoint, e);
         }
 
         private void mouseDownOnPoint4(object sender, MouseEventArgs e)
         {
-            AnnotationPoint annotationPoint = new AnnotationPoint { point = point4, label = classification4 };
+            AnnotationPoint annotationPoint = new AnnotationPoint { point = point4, label = classification4, segment = segment4 };
             startDraggingPoint(annotationPoint, e);
         }
 
         private void mouseDownOnPoint5(object sender, MouseEventArgs e)
         {
-            AnnotationPoint annotationPoint = new AnnotationPoint { point = point5, label = classification5 };
+            AnnotationPoint annotationPoint = new AnnotationPoint { point = point5, label = classification5, segment = segment5 };
             startDraggingPoint(annotationPoint, e);
         }
 
@@ -427,7 +435,9 @@ namespace PrototypeLog410
                 int yTranslation = mouseY - annotationPointDrag.startY;
 
                 Point currLocation = annotationPointDrag.point.point.Location;
-                annotationPointDrag.point.point.Location = new Point(currLocation.X + xTranslation, currLocation.Y + yTranslation);
+                Point newPointCoordinates = new Point(currLocation.X + xTranslation, currLocation.Y + yTranslation);
+                annotationPointDrag.point.point.Location = newPointCoordinates;
+                positionSegmentAndLabel(newPointCoordinates, annotationPointDrag.point.point, annotationPointDrag.point.segment, annotationPointDrag.point.label);
 
                 annotationPointDrag = null;
             }
@@ -487,6 +497,7 @@ namespace PrototypeLog410
         {
             public PictureBox point { get; set; }
             public Label label { get; set; }
+            public PictureBox segment { get; set; }
         }
 
         public class AnnotationPointDrag
