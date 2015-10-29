@@ -50,6 +50,9 @@
             this.classChoices = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.taxonomyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.segment5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.segment2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.segment3)).BeginInit();
@@ -63,6 +66,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.classChoiceBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.classChoices)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // classification1
@@ -248,7 +252,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::PrototypeLog410.Properties.Resources.corail1;
-            this.pictureBox1.Location = new System.Drawing.Point(330, 13);
+            this.pictureBox1.Location = new System.Drawing.Point(329, 55);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(1008, 600);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -257,7 +261,7 @@
             // 
             // filterTextBox
             // 
-            this.filterTextBox.Location = new System.Drawing.Point(36, 481);
+            this.filterTextBox.Location = new System.Drawing.Point(35, 523);
             this.filterTextBox.Name = "filterTextBox";
             this.filterTextBox.Size = new System.Drawing.Size(287, 20);
             this.filterTextBox.TabIndex = 17;
@@ -271,7 +275,7 @@
             // classChoices
             // 
             this.classChoices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.classChoices.Location = new System.Drawing.Point(1, 13);
+            this.classChoices.Location = new System.Drawing.Point(0, 55);
             this.classChoices.MultiSelect = false;
             this.classChoices.Name = "classChoices";
             this.classChoices.ReadOnly = true;
@@ -296,6 +300,31 @@
             this.button1.Text = "Save";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.taxonomyToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1350, 24);
+            this.menuStrip1.TabIndex = 21;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // taxonomyToolStripMenuItem
+            // 
+            this.taxonomyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editToolStripMenuItem});
+            this.taxonomyToolStripMenuItem.Name = "taxonomyToolStripMenuItem";
+            this.taxonomyToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
+            this.taxonomyToolStripMenuItem.Text = "Taxonomy";
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.editToolStripMenuItem.Text = "Edit";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -322,7 +351,9 @@
             this.Controls.Add(this.point3);
             this.Controls.Add(this.point1);
             this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.menuStrip1);
             this.KeyPreview = true;
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "SmartReef";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -340,6 +371,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.classChoiceBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.classChoices)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -367,6 +400,9 @@
         private System.Windows.Forms.DataGridView classChoices;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem taxonomyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
     }
 }
 

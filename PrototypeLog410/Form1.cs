@@ -501,6 +501,12 @@ namespace PrototypeLog410
             }
         }
 
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TaxonomyForm taxonomyForm = new TaxonomyForm();
+            taxonomyForm.ShowDialog(this);
+        }
+
         public class ClassChoice
         {
             public string Level1 { get; set; }
