@@ -95,11 +95,8 @@ namespace PrototypeLog410
 
         private void addAnnotationPoint(PictureBox pictureBox, PictureBox segmentPictureBox, Label classificationLabel, float xFraction, float yFraction)
         {
-            Point pointCoordinates = new Point((int)(pictureBox1.Size.Width * xFraction), (int)(pictureBox1.Size.Height * yFraction));
-
             pictureBox.Parent = pictureBox1;
             pictureBox.BackColor = Color.Transparent;
-            pictureBox.Location = pointCoordinates;
 
             segmentPictureBox.Parent = pictureBox1;
             segmentPictureBox.BackColor = Color.Transparent;
@@ -107,7 +104,15 @@ namespace PrototypeLog410
             classificationLabel.Parent = segmentPictureBox;
             classificationLabel.BackColor = Color.Transparent;
 
+            positionAnnotationPoint(xFraction, yFraction, pictureBox, segmentPictureBox, classificationLabel);
+
             classificationLabel.BringToFront();
+        }
+
+        private void positionAnnotationPoint(float xFraction, float yFraction, PictureBox pictureBox, PictureBox segmentPictureBox, Label classificationLabel)
+        {
+            Point pointCoordinates = new Point((int)(pictureBox1.Size.Width * xFraction), (int)(pictureBox1.Size.Height * yFraction));
+            pictureBox.Location = pointCoordinates;
 
             positionSegmentAndLabel(pointCoordinates, pictureBox, segmentPictureBox, classificationLabel);
         }
@@ -247,8 +252,7 @@ namespace PrototypeLog410
             }
             else if (images.Count != 0)
             {
-                pictureBox1.Image = images.Dequeue();
-                selectedPoint = null;
+                loadNextImage();
             }
 
             selectCurrClassification();
@@ -271,8 +275,19 @@ namespace PrototypeLog410
                 selectedPoint.label.ForeColor = Color.Lime;
             }
 
+            loadNextImage();
+        }
+
+        private void loadNextImage()
+        {
             pictureBox1.Image = images.Dequeue();
             selectedPoint = null;
+
+            positionAnnotationPoint(0.25f, 0.25f, point1, segment1, classification1);
+            positionAnnotationPoint(0.25f, 0.75f, point2, segment2, classification2);
+            positionAnnotationPoint(0.75f, 0.75f, point3, segment3, classification3);
+            positionAnnotationPoint(0.75f, 0.25f, point4, segment4, classification4);
+            positionAnnotationPoint(0.50f, 0.50f, point5, segment5, classification5);
         }
 
         private void segment1_Click(object sender, EventArgs e)
