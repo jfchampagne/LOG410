@@ -58,7 +58,8 @@ namespace PrototypeLog410
 
         private void removeParentButton_Click(object sender, EventArgs e)
         {
-            
+            resetLabelBackColors();
+            currTaxonomyTransformation = new TaxonomyTransformation { isAddition = false, level1Label = null, level2Label = null };
         }
 
         private void resetLabelBackColors()
@@ -173,7 +174,29 @@ namespace PrototypeLog410
 
             if (currTaxonomyTransformation.isAddition)
             {
-                taxonomyAssociations.Add(new TaxonomyAssociation { level1Label = label, level2Label = currTaxonomyTransformation.level2Label });
+                if (!isParent(label, currTaxonomyTransformation.level2Label))
+                {
+                    taxonomyAssociations.Add(new TaxonomyAssociation { level1Label = label, level2Label = currTaxonomyTransformation.level2Label });
+                }
+            }
+            else
+            {
+                int indexToRemove = -1;
+                int associationsCount = taxonomyAssociations.Count;
+                for(int i = 0; i < associationsCount; ++i)
+                {
+                    TaxonomyAssociation currAssociation = taxonomyAssociations[i];
+                    if(currAssociation.level1Label == label && currAssociation.level2Label == currTaxonomyTransformation.level2Label)
+                    {
+                        indexToRemove = i;
+                        break;
+                    }
+                }
+
+                if(indexToRemove != -1)
+                {
+                    taxonomyAssociations.RemoveAt(indexToRemove);
+                }
             }
 
             currTaxonomyTransformation = null;
@@ -181,6 +204,19 @@ namespace PrototypeLog410
 
             Invalidate();
             Update();
+        }
+
+        private bool isParent(Label level1Label, Label level2Label)
+        {
+            foreach(TaxonomyAssociation association in taxonomyAssociations)
+            {
+                if(association.level1Label == level1Label && association.level2Label == level2Label)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }
