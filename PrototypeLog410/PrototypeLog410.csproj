@@ -46,6 +46,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnnotationPoint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AnnotationPoint.Designer.cs">
+      <DependentUpon>AnnotationPoint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,6 +70,9 @@
     <Compile Include="TaxonomyForm.Designer.cs">
       <DependentUpon>TaxonomyForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AnnotationPoint.resx">
+      <DependentUpon>AnnotationPoint.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
