@@ -39,12 +39,10 @@
             // 
             // imgPoint
             // 
-            this.imgPoint.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.imgPoint.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.imgPoint.BackColor = System.Drawing.Color.Transparent;
             this.imgPoint.Image = global::PrototypeLog410.Properties.Resources.point;
-            this.imgPoint.Location = new System.Drawing.Point(88, 51);
+            this.imgPoint.Location = new System.Drawing.Point(95, 53);
             this.imgPoint.Name = "imgPoint";
             this.imgPoint.Size = new System.Drawing.Size(20, 20);
             this.imgPoint.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -68,16 +66,15 @@
             this.segment.Controls.Add(this.classification);
             this.segment.Location = new System.Drawing.Point(0, 3);
             this.segment.Name = "segment";
-            this.segment.Size = new System.Drawing.Size(192, 120);
+            this.segment.Size = new System.Drawing.Size(207, 124);
             this.segment.TabIndex = 30;
             // 
             // classification
             // 
-            this.classification.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.classification.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.classification.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
             this.classification.ForeColor = System.Drawing.Color.Red;
-            this.classification.Location = new System.Drawing.Point(2, 70);
+            this.classification.Location = new System.Drawing.Point(9, 72);
             this.classification.Name = "classification";
             this.classification.OutlineForeColor = System.Drawing.Color.Black;
             this.classification.OutlineWidth = 1F;
@@ -94,7 +91,7 @@
             this.Controls.Add(this.imgPoint);
             this.Controls.Add(this.segment);
             this.Name = "AnnotationPoint";
-            this.Size = new System.Drawing.Size(192, 123);
+            this.Size = new System.Drawing.Size(207, 127);
             ((System.ComponentModel.ISupportInitialize)(this.imgPoint)).EndInit();
             this.segment.ResumeLayout(false);
             this.ResumeLayout(false);

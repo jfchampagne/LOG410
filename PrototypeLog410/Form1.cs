@@ -12,8 +12,11 @@ namespace PrototypeLog410
 {
     public partial class Form1 : Form
     {
-        private AnnotationPoint[] annotationPoints = new AnnotationPoint[5];
+        //private AnnotationPoint[] annotationPoints = new AnnotationPoint[5];
+        private Stage[] stages = new Stage[3];
+        public Image Picture { get; set; }
         private int currentPoint;
+        private int currentStage;
 
         public Form1()
         {
@@ -34,38 +37,57 @@ namespace PrototypeLog410
             , new ClassChoice{Level1 = "Other", Level2="Rock", Pourcentage=0.2f }
             };
             classChoices.DataSource = classChoicesArray;
-
+            LoadData();
             SetUp();
+        }
+
+        private void LoadData()
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                Stage stage = new Stage();
+
+                currentPoint = 0;
+                currentStage = j;
+                AddAnnotationPoint(stage, new AnnotationPoint("Other - Rock - 22%", 0.25f, 0.25f));
+                AddAnnotationPoint(stage, new AnnotationPoint("Coral - Pink - 72%", 0.25f, 0.75f));
+                AddAnnotationPoint(stage, new AnnotationPoint("Coral - Pink - 92%", 0.75f, 0.75f));
+                AddAnnotationPoint(stage, new AnnotationPoint("Other - Alga - 90%", 0.75f, 0.25f));
+                AddAnnotationPoint(stage, new AnnotationPoint("Fish - Pike - 96%", 0.50f, 0.50f));
+
+                stages[currentStage] = stage;
+            }
+            stages[0].Picture = Properties.Resources.corail1;
+            stages[1].Picture = Properties.Resources.fond_marin2;
+            stages[2].Picture = Properties.Resources.Tropical_fish_nocturnal_mirage_37596601_1000_633;
+            currentPoint = 0;
+            currentStage = 0;
+            stages[0].AnnotationPoints[currentPoint].StartTimer();
+            oldSize = pictureBox1.Size;
         }
 
         private void SetUp()
         {
-            if (annotationPoints[0] != null)
+            imgRejected.Visible = false;
+            for (int i = 0; i < 5; i++)
             {
-                for (int i = 0; i < 5; i++)
-                {
-                    pictureBox1.Controls.Remove(annotationPoints[i]);
-                }
+                pictureBox1.Controls.Add(stages[currentStage].AnnotationPoints[i]);
             }
-            
 
             currentPoint = 0;
-            AddAnnotationPoint(new AnnotationPoint("Other - Rock - 22%", 0.25f, 0.25f));
-            AddAnnotationPoint(new AnnotationPoint("Coral - Pink - 72%", 0.25f, 0.75f));
-            AddAnnotationPoint(new AnnotationPoint("Coral - Pink - 92%", 0.75f, 0.75f));
-            AddAnnotationPoint(new AnnotationPoint("Other - Alga - 90%", 0.75f, 0.25f));
-            AddAnnotationPoint(new AnnotationPoint("Fish - Pike - 96%", 0.50f, 0.50f));
-
-            currentPoint = 0;
-            annotationPoints[currentPoint].StartTimer();
+            stages[currentStage].AnnotationPoints[currentPoint].StartTimer();
+            pictureBox1.Image = stages[currentStage].Picture;
             oldSize = pictureBox1.Size;
+
+            if (stages[currentStage].Rejected)
+                Reject();
         }
 
-        private void AddAnnotationPoint(AnnotationPoint annotationPoint)
+        private void AddAnnotationPoint(Stage stage, AnnotationPoint annotationPoint)
         {
-            annotationPoints[currentPoint++] = annotationPoint;
+            stage.AnnotationPoints[currentPoint++] = annotationPoint;
             //annotationPoints.Add(annotationPoint);
-            pictureBox1.Controls.Add(annotationPoint);
+            //pictureBox1.Controls.Add(annotationPoint);
             Size size = pictureBox1.Image.Size;
             annotationPoint.Location = new Point((int)(annotationPoint.XFraction * (float)size.Width), (int)(annotationPoint.YFraction * size.Height));
         }
@@ -111,9 +133,9 @@ namespace PrototypeLog410
 
         private void NextPoint()
         {
-            annotationPoints[currentPoint].StopTimer();
+            stages[currentStage].AnnotationPoints[currentPoint].StopTimer();
             currentPoint = ++currentPoint == 5 ? 0 : currentPoint;
-            annotationPoints[currentPoint].StartTimer();
+            stages[currentStage].AnnotationPoints[currentPoint].StartTimer();
 
             classChoices.ClearSelection();
             classChoices.Rows[0].Selected = true;
@@ -160,7 +182,7 @@ namespace PrototypeLog410
         
         private void saveSelectedChoice()
         {
-            AnnotationPoint selectedPoint = annotationPoints[currentPoint];
+            AnnotationPoint selectedPoint = stages[currentStage].AnnotationPoints[currentPoint];
             if (selectedPoint == null)
                 return;
 
@@ -200,7 +222,7 @@ namespace PrototypeLog410
         private void pictureBox1_SizeChanged(object sender, EventArgs e)
         {
             //Size offset = pictureBox1.Size - oldSize;
-            foreach (AnnotationPoint point in annotationPoints)
+            foreach (AnnotationPoint point in stages[currentStage].AnnotationPoints)
             {
                 point.RePossitionImage();
 
@@ -222,6 +244,41 @@ namespace PrototypeLog410
             {
                 DiableTabStop(item);
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Clean();
+            currentStage = ++currentStage > 2 ? 0 : currentStage;
+            SetUp();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Clean();
+            currentStage = --currentStage < 0 ? 2 : currentStage;
+            SetUp();
+        }
+
+        private void Clean()
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                pictureBox1.Controls.Remove(stages[currentStage].AnnotationPoints[i]);
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            stages[currentStage].Rejected = true;
+            Reject();
+        }
+        private void Reject()
+        {
+            pictureBox1.Controls.Clear();
+            imgRejected.Parent = pictureBox1;
+            imgRejected.BackColor = Color.Transparent;
+            imgRejected.Visible = true;
         }
     }
 }

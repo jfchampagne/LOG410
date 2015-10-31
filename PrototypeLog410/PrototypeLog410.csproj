@@ -64,6 +64,7 @@
     <Compile Include="MouseUpEventFilter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Stage.cs" />
     <Compile Include="TaxonomyForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +120,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\fond_marin2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Red_rejected_stamp_400_clr.png" />
+    <Content Include="Resources\Tropical-fish-nocturnal-mirage-37596601-1000-633.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

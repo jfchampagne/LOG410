@@ -103,9 +103,29 @@ namespace PrototypeLog410.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Rejected {
+            get {
+                object obj = ResourceManager.GetObject("Rejected", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap segment {
             get {
                 object obj = ResourceManager.GetObject("segment", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Tropical_fish_nocturnal_mirage_37596601_1000_633 {
+            get {
+                object obj = ResourceManager.GetObject("Tropical-fish-nocturnal-mirage-37596601-1000-633", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
