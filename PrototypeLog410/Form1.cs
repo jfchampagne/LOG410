@@ -111,6 +111,10 @@ namespace PrototypeLog410
             {
                 NextPoint();
             }
+            else if(e.KeyCode == Keys.Escape)
+            {
+                Reject();
+            }
             else
             {
                 if (!filterTextBox.Focused)
