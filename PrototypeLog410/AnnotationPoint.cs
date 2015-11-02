@@ -80,17 +80,6 @@ namespace PrototypeLog410
             Cursor = Cursors.Hand;
         }
 
-        private void imgPoint_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (!isDragging)
-                return;
-            if (this.imgPoint != sender)
-                return;
-            Point point = Location;
-            point.Offset(e.Location.X - previousLocation.X, e.Location.Y - previousLocation.Y);
-            Location = point;
-        }
-
         public void RePossitionImage()
         {
             Point point = new Point();
@@ -101,6 +90,14 @@ namespace PrototypeLog410
 
         private void imgPoint_MouseUp(object sender, MouseEventArgs e)
         {
+            if (!isDragging)
+                return;
+            if (this.imgPoint != sender)
+                return;
+            Point point = Location;
+            point.Offset(e.Location.X - previousLocation.X, e.Location.Y - previousLocation.Y);
+            Location = point;
+
             isDragging = false;
             Cursor = Cursors.Default;
         }

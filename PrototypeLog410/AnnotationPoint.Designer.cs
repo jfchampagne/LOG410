@@ -49,7 +49,6 @@
             this.imgPoint.TabIndex = 25;
             this.imgPoint.TabStop = false;
             this.imgPoint.MouseDown += new System.Windows.Forms.MouseEventHandler(this.imgPoint_MouseDown);
-            this.imgPoint.MouseMove += new System.Windows.Forms.MouseEventHandler(this.imgPoint_MouseMove);
             this.imgPoint.MouseUp += new System.Windows.Forms.MouseEventHandler(this.imgPoint_MouseUp);
             // 
             // timer
