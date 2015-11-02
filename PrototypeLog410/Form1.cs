@@ -97,15 +97,11 @@ namespace PrototypeLog410
         {
             if (e.KeyCode == Keys.Up) //Arrows
             {
-                int selectedItem = classChoices.SelectedRows[0].Index;
-                classChoices.Rows[selectedItem].Selected = false;
-                classChoices.Rows[--selectedItem].Selected = true;
+                SelectPreviousItem();
             }
             else if (e.KeyCode == Keys.Down) //Enter
             {
-                int selectedItem = classChoices.SelectedRows[0].Index;
-                classChoices.Rows[selectedItem].Selected = false;
-                classChoices.Rows[++selectedItem].Selected = true;
+                SelectNextItem();
             }
             else if (e.KeyCode == Keys.Enter) //Enter
             {
@@ -127,6 +123,40 @@ namespace PrototypeLog410
                         filterTextBox.SelectionStart = filterTextBox.Text.Length;
                         filterTextBox.SelectionLength = 0;
                     }
+                }
+            }
+        }
+
+        private void SelectNextItem()
+        {
+            int selectedItem = classChoices.CurrentRow.Index;
+
+            int rowsCount = classChoices.Rows.Count;
+            for(int i = selectedItem + 1; i < rowsCount; ++i)
+            {
+                DataGridViewRow currRow = classChoices.Rows[i];
+                if(currRow.Visible)
+                {
+                    classChoices.CurrentRow.Selected = false;
+                    selectRow(currRow);
+                    break;
+                }
+            }
+        }
+
+        private void SelectPreviousItem()
+        {
+            int selectedItem = classChoices.CurrentRow.Index;
+
+            int rowsCount = classChoices.Rows.Count;
+            for (int i = selectedItem - 1; i >= 0; --i)
+            {
+                DataGridViewRow currRow = classChoices.Rows[i];
+                if (currRow.Visible)
+                {
+                    classChoices.CurrentRow.Selected = false;
+                    selectRow(currRow);
+                    break;
                 }
             }
         }
@@ -178,6 +208,8 @@ namespace PrototypeLog410
                     }
                 }
             }
+
+            selectFirstVisibleClassChoice();
         }
         
         private void saveSelectedChoice()
@@ -186,11 +218,15 @@ namespace PrototypeLog410
             if (selectedPoint == null)
                 return;
 
-            string level1 = classChoices.SelectedRows[0].Cells[0].Value.ToString();
-            string level2 = classChoices.SelectedRows[0].Cells[1].Value.ToString();
-            string pct = classChoices.SelectedRows[0].Cells[2].Value.ToString();
+            string level1 = classChoices.CurrentRow.Cells[0].Value.ToString();
+            string level2 = classChoices.CurrentRow.Cells[1].Value.ToString();
+            string pct = classChoices.CurrentRow.Cells[2].Value.ToString();
+
+            filterTextBox.Clear();
 
             selectedPoint.Taxonomie = level1 + " - " + level2 + " - " + pct + "%";
+
+            NextPoint();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -280,5 +316,30 @@ namespace PrototypeLog410
             imgRejected.BackColor = Color.Transparent;
             imgRejected.Visible = true;
         }
-    }
+
+        private void selectFirstVisibleClassChoice()
+        {
+            bool firstAlreadySelected = false;
+
+            foreach (DataGridViewRow row in classChoices.Rows)
+            {
+                if (firstAlreadySelected || !row.Visible)
+                {
+                    row.Selected = false;
+                }
+                else if (row.Visible)
+                {
+                    firstAlreadySelected = true;
+                    selectRow(row);
+                }
+            }
+         }
+
+        private void selectRow(DataGridViewRow row)
+        {
+            row.Selected = true;
+            row.Cells[0].Selected = true;
+            classChoices.CurrentCell = row.Cells[0];
+        }
+}
 }

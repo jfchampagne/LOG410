@@ -98,7 +98,7 @@
             this.classChoices.Name = "classChoices";
             this.classChoices.ReadOnly = true;
             this.classChoices.RowHeadersVisible = false;
-            this.classChoices.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.classChoices.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.classChoices.Size = new System.Drawing.Size(279, 496);
             this.classChoices.TabIndex = 21;
             this.classChoices.TabStop = false;
@@ -110,6 +110,7 @@
             this.filterTextBox.Name = "filterTextBox";
             this.filterTextBox.Size = new System.Drawing.Size(244, 20);
             this.filterTextBox.TabIndex = 20;
+            this.filterTextBox.TextChanged += new System.EventHandler(this.filterTextBox_TextChanged);
             // 
             // button2
             // 
@@ -129,7 +130,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 24;
-            this.button3.Text = "Previouse";
+            this.button3.Text = "Previous";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 

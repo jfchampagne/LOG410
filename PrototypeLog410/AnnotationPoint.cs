@@ -22,7 +22,11 @@ namespace PrototypeLog410
             set
             {
                 classification.Text = value;
-                int pourcentage = int.Parse(value.Substring(value.Length - 3, 2));
+
+                string[] classificationStrParts = value.Split(new char[] { '-' });
+                string pctStr = classificationStrParts[2].Split(new char[] { '%' })[0].Trim();
+
+                float pourcentage = float.Parse(pctStr);
                 if (pourcentage < 25)
                     classification.ForeColor = Color.Red;
                 else if (pourcentage < 50)
