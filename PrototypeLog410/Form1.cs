@@ -103,6 +103,14 @@ namespace PrototypeLog410
             {
                 SelectNextItem();
             }
+            else if(e.KeyCode == Keys.Right)
+            {
+                GoToNextImage();
+            }
+            else if(e.KeyCode == Keys.Left)
+            {
+                GoToPreviousImage();
+            }
             else if (e.KeyCode == Keys.Enter) //Enter
             {
                 saveSelectedChoice();
@@ -233,18 +241,6 @@ namespace PrototypeLog410
             NextPoint();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            loadNextImage();
-        }
-
-        private void loadNextImage()
-        {
-            pictureBox1.Image = Properties.Resources.fond_marin2;
-            SetUp();
-        }
-
-
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TaxonomyForm taxonomyForm = new TaxonomyForm();
@@ -288,12 +284,22 @@ namespace PrototypeLog410
 
         private void button2_Click(object sender, EventArgs e)
         {
+            GoToNextImage();
+        }
+
+        private void GoToNextImage()
+        {
             Clean();
             currentStage = ++currentStage > 2 ? 0 : currentStage;
             SetUp();
         }
 
         private void button3_Click(object sender, EventArgs e)
+        {
+            GoToPreviousImage();
+        }
+
+        private void GoToPreviousImage()
         {
             Clean();
             currentStage = --currentStage < 0 ? 2 : currentStage;
